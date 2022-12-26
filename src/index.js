@@ -15,17 +15,25 @@ import List from "./pages/List";
 import Login from "./pages/Login";
 import Pick from "./pages/Pick";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <NotFound />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "list", element: <List /> },
+      { path: "login", element: <Login /> },
+      { path: "pick", element: <Pick /> },
+    ],
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/list" element={<List />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/pick" element={<Pick />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  </BrowserRouter>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
+  </React.StrictMode>
 );
