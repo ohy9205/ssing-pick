@@ -9,12 +9,3 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-const provider = new GoogleAuthProvider();
-
-// 사용자 관찰자
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-  } else {
-  }
-});
