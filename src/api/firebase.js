@@ -1,6 +1,14 @@
 import { initializeApp } from "firebase/app";
-import { child, get, getDatabase, ref, remove, set } from "firebase/database";
-import uuid from "react-uuid";
+import {
+  child,
+  get,
+  getDatabase,
+  onValue,
+  ref,
+  remove,
+  set,
+} from "firebase/database";
+import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {
@@ -15,27 +23,31 @@ const database = getDatabase(firebase);
 const dbRef = ref(getDatabase());
 
 // 리스트 읽기
-export async function getSongs() {
-  const snapshot = await get(child(dbRef, "songs"));
-  if (snapshot.exists()) {
-    // console.log(Object.values(snapshot.val()));
-    const songs = Object.values(snapshot.val());
-    songs.sort((a, b) => b.data - a.data);
-    return songs;
-  }
+export function getSongs(callback) {
+  onValue(ref(database, "songs"), (snapshot) => {
+    if (snapshot.exists()) {
+      const songs = Object.values(snapshot.val());
+      songs.sort((a, b) => b.date - a.date);
+      callback(songs);
+    }
+  });
 }
 
 // 리스트 추가
 export function addSong(song) {
   const id = uuidv4();
   set(ref(database, `songs/${id}`), {
-    id,
-    data: Date.now(),
     ...song,
+    id,
+    date: Date.now(),
   });
 }
 
 // 리스트 삭제
-export function removeSong(id) {
-  remove(child(dbRef, `songs/${id}`));
+// export function removeSong(id) {
+//   remove(child(dbRef, `songs/${id}`));
+// }
+
+export function removeSong() {
+  remove(child(dbRef, `songs`));
 }

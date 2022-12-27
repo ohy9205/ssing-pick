@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Button from "../components/ui/Button";
 import { asyncAddSongFetch } from "../store/store";
 
-export default function NewSong({ onCancle }) {
+export default function NewSong({ onIsAddHandler }) {
   const [song, setSong] = useState({});
   const status = useSelector((state) => state.status);
   const dispatch = useDispatch();
 
   const changeHandler = (e) => {
     setSong({ ...song, [e.target.name]: e.target.value });
+  };
+
+  const reset = () => {
+    setSong({});
+    onIsAddHandler(false);
   };
 
   const submitHandler = (e) => {
@@ -22,12 +26,7 @@ export default function NewSong({ onCancle }) {
       }
     }
     dispatch(asyncAddSongFetch(song));
-    setSong({});
-  };
-
-  const cancleHandler = () => {
-    setSong({});
-    onCancle(false);
+    reset();
   };
 
   return (
@@ -60,8 +59,8 @@ export default function NewSong({ onCancle }) {
         </fieldset>
         <div className="flex justify-end gap-5">
           {status === "loading" ? "추가하는 중..." : ""}
-          <Button type="text" text="취소" onClick={cancleHandler} cancle />
-          <Button text="추가" />
+          <Button type="button" text="취소" onClick={() => reset()} cancle />
+          <Button type="submit" text="추가" />
         </div>
       </form>
     </section>

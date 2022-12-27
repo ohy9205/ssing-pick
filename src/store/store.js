@@ -3,7 +3,7 @@ import {
   createAsyncThunk,
   createSlice,
 } from "@reduxjs/toolkit";
-import { addSong, getSongs, removeSong } from "../api/firebase";
+import { addSong, getSongs } from "../api/firebase";
 
 // export default function store() {
 
@@ -13,19 +13,21 @@ const asyncAddSongFetch = createAsyncThunk(
   (song) => addSong(song) // 실행할 작업
 );
 
-// 노래 가져오는 actionCreator 생성
-const asyncGetSongsFetch = createAsyncThunk(
-  "songsSlice/asyncGetSongsFetch",
-  async () => {
-    const songs = await getSongs();
-    return songs;
-  }
-);
+//노래 목록 가져오기
+const getSongsFetch = (dispatch) => {
+  return (dispatch) => {
+    getSongs((data) => dispatch(get(data)));
+  };
+};
 
 const songsSlice = createSlice({
   name: "songsSlice",
   initialState: { songs: [], status: null },
-  reducers: {},
+  reducers: {
+    get: (state, action) => {
+      state.songs = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     // 노래 추가 (pending)
     builder.addCase(asyncAddSongFetch.pending, (state) => {
@@ -35,19 +37,10 @@ const songsSlice = createSlice({
     builder.addCase(asyncAddSongFetch.fulfilled, (state, action) => {
       state.status = "Success";
     });
-
-    // 목록 읽기 (pending)
-    builder.addCase(asyncGetSongsFetch.pending, (state) => {
-      state.status = "Loading";
-    });
-    // 목록 읽기 (fullfilled)
-    builder.addCase(asyncGetSongsFetch.fulfilled, (state, action) => {
-      state.status = "Success";
-      state.songs = action.payload;
-    });
   },
 });
 
 export const store = configureStore({ reducer: songsSlice.reducer });
-export { asyncAddSongFetch, asyncGetSongsFetch };
+export { asyncAddSongFetch, getSongsFetch };
+export const { get } = songsSlice.actions;
 // }

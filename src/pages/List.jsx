@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../components/ui/Button";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import NewSong from "./NewSong";
-import { asyncGetSongsFetch } from "../store/store";
+import { getSongsFetch } from "../store/store";
 
 export default function List() {
   const songs = useSelector((state) => state.songs);
@@ -13,11 +12,10 @@ export default function List() {
 
   const onClickHandler = () => {
     setIsAdd(true);
-    // navigate("/list/new");
   };
 
   useEffect(() => {
-    dispatch(asyncGetSongsFetch());
+    dispatch(getSongsFetch(dispatch));
   }, []);
 
   if (status === "Loading") {
@@ -27,7 +25,7 @@ export default function List() {
   return (
     <section className="p-8">
       {isAdd ? (
-        <NewSong onCancle={setIsAdd} />
+        <NewSong onIsAddHandler={setIsAdd} />
       ) : (
         <Button onClick={onClickHandler} text="새로운 곡을 추가해보세요📂" />
       )}
