@@ -3,7 +3,7 @@ import {
   createAsyncThunk,
   createSlice,
 } from "@reduxjs/toolkit";
-import { addSong, getSongs } from "../api/firebase";
+import { addSong, getSongs, removeSong } from "../api/firebase";
 
 // export default function store() {
 
@@ -19,6 +19,12 @@ const getSongsFetch = (dispatch) => {
     getSongs((data) => dispatch(get(data)));
   };
 };
+
+// 노래 삭제
+const asyncRemoveSongFetch = createAsyncThunk(
+  "songsSlice/asyncRemoveSongFetch",
+  (id) => removeSong(id)
+);
 
 const songsSlice = createSlice({
   name: "songsSlice",
@@ -37,10 +43,14 @@ const songsSlice = createSlice({
     builder.addCase(asyncAddSongFetch.fulfilled, (state, action) => {
       state.status = "Success";
     });
+    // 노래 삭제 (fullfilled)
+    builder.addCase(asyncRemoveSongFetch.fulfilled, (state, action) => {
+      state.status = "Success";
+    });
   },
 });
 
 export const store = configureStore({ reducer: songsSlice.reducer });
-export { asyncAddSongFetch, getSongsFetch };
+export { asyncAddSongFetch, getSongsFetch, asyncRemoveSongFetch };
 export const { get } = songsSlice.actions;
 // }

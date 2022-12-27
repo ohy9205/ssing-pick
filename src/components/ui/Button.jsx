@@ -12,7 +12,7 @@ export default function Button({
     <button
       className={`${
         cancle ? "bg-zinc-700" : "bg-violet-800"
-      } md:text-lg p-2 hover:brightness-110 rounded-md w-full ${className}`}
+      } md:text-lg p-2 hover:brightness-110 rounded-md ${className}`}
       type={type}
       onClick={onClick}
       disabled={disabled}>

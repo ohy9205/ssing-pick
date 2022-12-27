@@ -1,8 +1,15 @@
 import React from "react";
-import Button from "./ui/Button";
 import { AiFillDelete } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { asyncRemoveSongFetch } from "../store/store";
 
-export default function SongCard({ song: { singer, title } }) {
+export default function SongCard({ song: { singer, title, id } }) {
+  const dispatch = useDispatch();
+
+  const removeHandler = () => {
+    dispatch(asyncRemoveSongFetch(id));
+  };
+
   return (
     <li
       id="songCard"
@@ -12,7 +19,9 @@ export default function SongCard({ song: { singer, title } }) {
         <p className="w-5/12">{singer}</p>
         <p className="w-6/12">{title}</p>
       </div>
-      <div className="flex justify-center items-center rounded-full bg-violet-800">
+      <div
+        className="flex justify-center items-center rounded-full bg-violet-800 cursor-pointer"
+        onClick={removeHandler}>
         <AiFillDelete className="text-sm m-1 md:m-2 md:text-lg" />
       </div>
     </li>

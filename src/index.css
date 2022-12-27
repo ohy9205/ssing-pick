@@ -22,7 +22,7 @@ body {
 }
 
 input {
-  @apply rounded-sm p-2 w-full text-zinc-800;
+  @apply rounded-sm p-1 w-full text-zinc-800;
 }
 
 code {

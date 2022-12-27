@@ -14,7 +14,7 @@ export default function Home() {
             <Button text="목록 확인 📂" className="my-8 w-full" />
           </Link>
           <Link to="/pick">
-            <Button text="랜덤 뽑기" />
+            <Button text="랜덤 뽑기 ❓" className="w-full" />
           </Link>
         </div>
       </article>

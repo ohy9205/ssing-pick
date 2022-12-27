@@ -29,7 +29,7 @@ export function getSongs(callback) {
       const songs = Object.values(snapshot.val());
       songs.sort((a, b) => b.date - a.date);
       callback(songs);
-    }
+    } else callback([]);
   });
 }
 
@@ -44,10 +44,6 @@ export function addSong(song) {
 }
 
 // 리스트 삭제
-// export function removeSong(id) {
-//   remove(child(dbRef, `songs/${id}`));
-// }
-
-export function removeSong() {
-  remove(child(dbRef, `songs`));
+export function removeSong(id) {
+  remove(child(dbRef, `songs/${id}`));
 }
