@@ -13,7 +13,7 @@ export default function SongCard({ song: { singer, title } }) {
         <p className="w-6/12">{title}</p>
       </div>
       <div className="flex justify-center items-center rounded-full w-7 h-7 bg-violet-800">
-        <AiFillDelete className="text-md" />
+        <AiFillDelete className="text-lg" />
       </div>
     </li>
   );
