@@ -24,7 +24,7 @@ const asyncGetSongsFetch = createAsyncThunk(
 
 const songsSlice = createSlice({
   name: "songsSlice",
-  initialState: { songs: [], status: "welcom" },
+  initialState: { songs: [], status: null },
   reducers: {},
   extraReducers: (builder) => {
     // 노래 추가 (pending)

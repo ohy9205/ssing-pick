@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import List from "./pages/List";
 import Login from "./pages/Login";
 import Pick from "./pages/Pick";
+import NewSong from "./pages/NewSong";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 

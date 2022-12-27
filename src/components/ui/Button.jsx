@@ -1,10 +1,13 @@
 import React from "react";
 
-export default function Button({ text, onClick }) {
+export default function Button({ text, onClick, cancle, disabled }) {
   return (
     <button
-      className="w-full text-lg p-2 px-4 bg-violet-800 hover:brightness-110 rounded-md "
-      onClick={onClick}>
+      className={`${
+        cancle ? "bg-zinc-700" : "bg-violet-800"
+      } text-lg p-2 px-4 hover:brightness-110 rounded-md`}
+      onClick={onClick}
+      disabled={disabled}>
       {text}
     </button>
   );
