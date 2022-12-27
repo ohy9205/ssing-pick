@@ -18,8 +18,10 @@ const dbRef = ref(getDatabase());
 export async function getSongs() {
   const snapshot = await get(child(dbRef, "songs"));
   if (snapshot.exists()) {
-    console.log(snapshot.val());
-    return snapshot.val();
+    // console.log(Object.values(snapshot.val()));
+    const songs = Object.values(snapshot.val());
+    songs.sort((a, b) => b.data - a.data);
+    return songs;
   }
 }
 
@@ -28,6 +30,7 @@ export function addSong(song) {
   const id = uuidv4();
   set(ref(database, `songs/${id}`), {
     id,
+    data: Date.now(),
     ...song,
   });
 }

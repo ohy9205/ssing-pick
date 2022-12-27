@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import Button from "../components/ui/Button";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import NewSong from "./NewSong";
+import { asyncGetSongsFetch } from "../store/store";
 
 export default function List() {
   const songs = useSelector((state) => state.songs);
@@ -15,8 +16,12 @@ export default function List() {
     // navigate("/list/new");
   };
 
+  useEffect(() => {
+    dispatch(asyncGetSongsFetch());
+  }, []);
+
   if (status === "Loading") {
-    return <p>{status + "..."}</p>;
+    return <p>{"Loading..."}</p>;
   }
 
   return (
@@ -29,6 +34,15 @@ export default function List() {
       <article>
         <h1>✔골라골라</h1>
         {/* 노래 리스트 꺼내오기 */}
+        <ul>
+          {songs &&
+            songs.length > 0 &&
+            songs.map((it) => (
+              <li key={it.id}>
+                {it.singer} {it.title}
+              </li>
+            ))}
+        </ul>
       </article>
     </section>
   );
