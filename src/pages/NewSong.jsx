@@ -40,6 +40,7 @@ export default function NewSong({ onIsAddHandler }) {
               name="singer"
               type="text"
               value={song.singer || ""}
+              maxLength="7"
               onChange={changeHandler}
               required
             />
@@ -52,6 +53,7 @@ export default function NewSong({ onIsAddHandler }) {
               name="title"
               type="text"
               value={song.title || ""}
+              maxLength="15"
               onChange={changeHandler}
               required
             />
