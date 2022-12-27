@@ -7,7 +7,7 @@ export default function Home() {
     <section className=" p-8 h-full">
       <article className="flex flex-col items-center h-full">
         <p className="my-4">
-          부를 노래가 생각나지 않을 땐 추천 목록을 확인해보세요!
+          부를 노래가 생각나지 않을 땐 목록을 확인해보세요!
         </p>
         <div className="flex flex-col w-full">
           <Link to="/list">
