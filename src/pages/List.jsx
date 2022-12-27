@@ -10,7 +10,7 @@ export default function List() {
   const songs = useSelector((state) => state.songs);
   const status = useSelector((state) => state.status);
   const [isAdd, setIsAdd] = useState(false);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onClickHandler = () => {
@@ -21,31 +21,28 @@ export default function List() {
     navigate(-1);
   };
 
-  useEffect(() => {
-    dispatch(getSongsFetch(dispatch));
-  }, []);
-
   if (status === "Loading") {
     return <p>{"Loading..."}</p>;
   }
 
   return (
     <section className="px-8 py-4">
-      {isAdd ? (
-        <NewSong onIsAddHandler={setIsAdd} />
-      ) : (
-        <>
-          <p
-            className="mb-4 cursor-pointer"
-            onClick={onBackHandler}>{`< Home`}</p>
-
-          <Button
-            onClick={onClickHandler}
-            text="새로운 곡을 추가하세요 🎵"
-            className="p-2 px-4 w-full"
-          />
-        </>
-      )}
+      <article>
+        <p
+          className="mb-4 cursor-pointer"
+          onClick={onBackHandler}>{`< Home`}</p>
+        {isAdd ? (
+          <NewSong onIsAddHandler={setIsAdd} />
+        ) : (
+          <>
+            <Button
+              onClick={onClickHandler}
+              text="새로운 곡을 추가하세요 🎵"
+              className="p-2 px-4 w-full"
+            />
+          </>
+        )}
+      </article>
 
       <article className="my-10">
         {/* 노래 리스트 꺼내오기 */}
