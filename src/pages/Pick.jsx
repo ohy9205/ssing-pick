@@ -10,9 +10,6 @@ export default function Pick() {
   const [randomList, setRandomList] = useState([]);
   const songs = useSelector((state) => state.songs);
   const songsCount = songs.length;
-  const onBackHandler = () => {
-    navigate("/");
-  };
 
   const pickRandom = () => {
     const songsCount = songs.length;
@@ -47,7 +44,9 @@ export default function Pick() {
 
   return (
     <section className="px-8 py-4">
-      <p className="mb-4 cursor-pointer" onClick={onBackHandler}>{`< Home`}</p>
+      <p
+        className="mb-4 cursor-pointer"
+        onClick={() => navigate("/")}>{`< Home`}</p>
       <article>
         <div className="flex items-center justify-between my-2">
           <h2 className="text-lg font-semibold">몇곡을 뽑을까요❓</h2>

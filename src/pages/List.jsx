@@ -17,10 +17,6 @@ export default function List() {
     setIsAdd(true);
   };
 
-  const onBackHandler = () => {
-    navigate(-1);
-  };
-
   if (status === "Loading") {
     return <p>{"Loading..."}</p>;
   }
@@ -30,7 +26,7 @@ export default function List() {
       <article>
         <p
           className="mb-4 cursor-pointer"
-          onClick={onBackHandler}>{`< Home`}</p>
+          onClick={() => navigate("/")}>{`< Home`}</p>
         {isAdd ? (
           <NewSong onIsAddHandler={setIsAdd} />
         ) : (
