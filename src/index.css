@@ -25,6 +25,10 @@ input {
   @apply rounded-sm p-1 w-full text-zinc-800;
 }
 
+label {
+  @apply text-sm opacity-90;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

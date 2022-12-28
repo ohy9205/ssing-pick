@@ -15,7 +15,7 @@ export default function Login() {
   };
 
   return (
-    <section className="p-8 flex flex-col justify-center items-center">
+    <section className="p-8 flex flex-col justify-center">
       <p
         className="mb-4 cursor-pointer"
         onClick={() => navigate("/")}>{`< Home`}</p>
@@ -41,8 +41,9 @@ export default function Login() {
         />
         <Button text="로그인" className="w-full my-3" />
       </form>
-      <FcGoogle className="text-3xl" />
-      {/* <h2>Google 로그인</h2> */}
+      <div className="flex justify-center my-5">
+        <FcGoogle className="text-3xl cursor-pointer" />
+      </div>
     </section>
   );
 }
