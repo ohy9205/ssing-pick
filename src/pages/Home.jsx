@@ -17,12 +17,6 @@ export default function Home() {
           </Link>
         </div>
       </article>
-      <article className="my-8">
-        <p className="text-xs my-2">로그인하고 더 다양한 서비스를 경험해보기</p>
-        <Link to="/login">
-          <Button text="Login" className="w-full" cancle />
-        </Link>
-      </article>
     </section>
   );
 }

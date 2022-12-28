@@ -8,7 +8,11 @@ import {
   remove,
   set,
 } from "firebase/database";
-import { useDispatch } from "react-redux";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {
@@ -19,6 +23,7 @@ const firebaseConfig = {
 };
 
 const firebase = initializeApp(firebaseConfig);
+const auth = getAuth(firebase);
 const database = getDatabase(firebase);
 const dbRef = ref(getDatabase());
 
@@ -29,7 +34,9 @@ export function getSongs(callback) {
       const songs = Object.values(snapshot.val());
       songs.sort((a, b) => b.date - a.date);
       callback(songs);
-    } else callback([]);
+    } else {
+      callback([]);
+    }
   });
 }
 
