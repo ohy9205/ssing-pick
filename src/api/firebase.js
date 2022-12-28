@@ -1,18 +1,12 @@
 import { initializeApp } from "firebase/app";
 import {
   child,
-  get,
   getDatabase,
   onValue,
   ref,
   remove,
   set,
 } from "firebase/database";
-import {
-  createUserWithEmailAndPassword,
-  getAuth,
-  onAuthStateChanged,
-} from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
 
 const firebaseConfig = {
@@ -23,7 +17,6 @@ const firebaseConfig = {
 };
 
 const firebase = initializeApp(firebaseConfig);
-const auth = getAuth(firebase);
 const database = getDatabase(firebase);
 const dbRef = ref(getDatabase());
 

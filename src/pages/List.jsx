@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Button from "../components/ui/Button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import NewSong from "./NewSong";
-import { getSongsFetch } from "../store/store";
 import SongCard from "../components/SongCard";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +9,6 @@ export default function List() {
   const songs = useSelector((state) => state.songs);
   const status = useSelector((state) => state.status);
   const [isAdd, setIsAdd] = useState(false);
-  // const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onClickHandler = () => {
@@ -41,7 +39,6 @@ export default function List() {
       </article>
 
       <article className="my-10">
-        {/* 노래 리스트 꺼내오기 */}
         <ul>
           {songs &&
             songs.length > 0 &&

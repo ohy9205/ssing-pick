@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import SongCard from "../components/SongCard";
 import Button from "../components/ui/Button";
@@ -27,7 +27,7 @@ export default function Pick() {
     setRandomList([]);
     setCount();
 
-    // 랜덤 번호를 뽑아서 배열에 저장 (중복없이)
+    // 랜덤 번호를 뽑아서 배열에 저장
     const indexList = new Set([]);
 
     while (indexList.size < count) {

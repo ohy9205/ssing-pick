@@ -3,7 +3,7 @@ import {
   createAsyncThunk,
   createSlice,
 } from "@reduxjs/toolkit";
-import { addSong, createUser, getSongs, removeSong } from "../api/firebase";
+import { addSong, getSongs, removeSong } from "../api/firebase";
 
 //노래 추가하는 actionCreator 생성
 const asyncAddSongFetch = createAsyncThunk(
