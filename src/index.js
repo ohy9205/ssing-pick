@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 import List from "./pages/List";
 import Login from "./pages/Login";
 import Pick from "./pages/Pick";
-import NewSong from "./pages/NewSong";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 
@@ -22,6 +21,7 @@ const router = createBrowserRouter([
       { path: "list", element: <List /> },
       { path: "login", element: <Login /> },
       { path: "pick", element: <Pick /> },
+      { path: "login", element: <Login /> },
     ],
   },
 ]);
