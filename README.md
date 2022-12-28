@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# ssing-pick
+리덕스에 익숙해지기 위해 진행한 토이 프로젝트입니다.
+노래정보를 저장해두고 필요할 때 꺼내볼 수 있습니다. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> URL: 
 
-## Available Scripts
+## 기술 및 라이브러리
+- html, css, javascript
+- React.js
+- Create-React-App 프로젝트
+- firebase > realtime database
+- tailwind 
+- react-router-dom
+- react-redux
+- redux-toolkit
+- redux-icon
+- uuid
 
-In the project directory, you can run:
+## 설치
+> 사전 조건: `firebaseConfig`에 필요한 본인의 firebase 정보
+### install
+```js
+npm install
+```
+### usage
+```js
+npm start
+```
 
-### `npm start`
+## 컴포넌트별 기능
+### App
+- [X] Database에 저장된 노래 목록을 가져와서 `redux store`에 저장합니다.
+### List
+- [X] 저장된 노래 목록을 불러옵니다.
+- [X] Database에 새로운 곡을 추가할 수 있습니다.
+- [X] Database로부터 특정 곡을 삭제할 수 있습니다.
+### Pick
+- [X] 저장된 노래 목록을 불러옵니다.
+- [X] 노래 목록에서 원하는 갯수만큼 랜덤으로 곡을 뽑아서 보여줄 수 있습니다.
+    
+## 사용
+### 목록 확인 페이지
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+!![ezgif-2-846c328d3e](https://user-images.githubusercontent.com/78143860/209783215-56dd792b-f153-4eb7-991d-fbd7be79e3ac.gif)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 랜덤 뽑기 페이지
 
-### `npm test`
+![ezgif-2-338d5070ae](https://user-images.githubusercontent.com/78143860/209783340-800fdfa5-e00c-4090-9695-4cec4725088d.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 정보
+더 자세한 개발기를 보고싶다면 ~~~~블로그~~~
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+	
