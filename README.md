@@ -2,7 +2,7 @@
 `Redux`에 익숙해지기 위해 진행한 토이 프로젝트입니다.
 노래정보를 저장해두고 필요할 때 꺼내볼 수 있습니다. 
 
-> URL: 
+> URL: https://my-ssing-pick.firebaseapp.com/
 
 ## 기술 및 라이브러리
 - html, css, javascript
