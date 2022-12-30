@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import Button from "../components/ui/Button";
 import { useState } from "react";
-import NewSong from "./NewSong";
+import NewSong from "../components/NewSong";
 import SongCard from "../components/SongCard";
 import { useNavigate } from "react-router-dom";
 
