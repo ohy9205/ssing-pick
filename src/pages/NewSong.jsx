@@ -42,6 +42,7 @@ export default function NewSong({ onIsAddHandler }) {
               value={song.singer || ""}
               maxLength="7"
               onChange={changeHandler}
+              autoComplete="off"
               required
             />
           </div>
@@ -55,6 +56,7 @@ export default function NewSong({ onIsAddHandler }) {
               value={song.title || ""}
               maxLength="15"
               onChange={changeHandler}
+              autoComplete="off"
               required
             />
           </div>
