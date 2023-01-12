@@ -27,6 +27,15 @@ npm install
 npm start
 ```
 
+## 라우팅
+```js
+<App>
+  / 👉 <Home>
+  /list 👉 <List>
+  /pick 👉 <Pick>
+  /잘못된경로 👉 <NotFound>
+```
+
 ## 컴포넌트별 기능
 ### App
 - [X] Database에 저장된 노래 목록을 가져와서 `redux store`에 저장합니다.
@@ -39,6 +48,11 @@ npm start
 - [X] 노래 목록에서 원하는 갯수만큼 랜덤으로 곡을 뽑아서 보여줄 수 있습니다.
     
 ## 사용
+### 리스트 불러오기
+- 메인페이지에 접속하면 데이터베이스로부터 곡 리스트를 받아와 redux store에 저장합니다.
+- `firebase realtime database`의 `onValue` API를 사용했습니다.
+- `onValue`는 데이터베이스가 업데이트되면 자동으로 호출되는데 호출 될때마다 `redux store`도 업데이트해서 데이터가 동기화 되도록 만들었습니다.
+
 ### 목록 확인 페이지
 
 !![ezgif-2-846c328d3e](https://user-images.githubusercontent.com/78143860/209783215-56dd792b-f153-4eb7-991d-fbd7be79e3ac.gif)
